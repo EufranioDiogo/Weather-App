@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="STYLE/universal.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://kit.fontawesome.com/5c7edfd842.js" crossorigin="anonymous"></script>
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="search-menu" :style="{display: displaySearchPanel}">
+      <i id="close-search-painel" class="fas fa-times" v-on:click="closeSearchPanel"></i>
+      <div class="search-menu-conteiner">
+        <div class="search-engine-conteiner">
+          <div class="search-engine-input-field-conteiner">
+            <i class="fas fa-search-location"></i>
+            <input type="text" placeholder="Search the place" v-model="searchedPlace">
+            <button v-on:click="searchForPlace">Search</button>
+          </div>
+        </div>
+
+        <ul class="result-list" v-show="searchResults.length">
+          <button v-for="location in searchResults" v-on:click="searchAboutLocation(location.woeid)" :key="location.woeid"><li>{{ location.title }}</li></button>
+        </ul>
+        <p v-show="!searchResults.length">No results</p>
+      </div>
+    </div>
+
+
+    <aside class="aside-menu">
+      <div class="aside-header">
+        <button id="btn-open-search" class="aside-header-search-button" v-on:click="openSearchPanel">
+          Search for places
+        </button>
+        <i id="bussola" class="far fa-compass" v-on:click="openSearchPanel"></i>
+      </div>
+      <div class="aside-information-painel">
+        <img :src="img" alt="actual weather">
+        <h1 class="aside-information-painel-temp"><strong>{{actualTemp}}</strong>{{ unit }}</h1>
+        <h2 class="aside-information-painel-state">{{ stateDesc }}</h2>
+        <div class="aside-information-bottom">
+          <div class="aside-information-bottom-state-today">
+            <p>{{ data }}</p>
+          </div>
+          <h3 class="aside-information-bottom-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>{{ title }}</p>
+          </h3>
+        </div>
+      </div>
+    </aside>
+    <main class="main-conteiner">
+      <div class="main-conteiner-header">
+        <div class="main-conteiner-f-c">
+          <button v-on:click="celcius" class="main-conteiner-header-temperature-c button" :class="{active: !fahrenheitFlag}">ºC</button>
+          <button v-on:click="fahrenheit" class="main-conteiner-header-temperature-f button" :class="{active: fahrenheitFlag}">ºF</button>
+        </div>
+      </div>
+      <div class="main-conteiner-weekdays">
+        <div v-for="(tempData, index) in tempInformations" class="weekday-state" v-on:click="displayInfo(index)">
+          <p class="weekday-desc">{{ tempData.date }}</p>
+          <img :src="tempData.img" :alt="tempData">
+          <div class="weekday-min-max">
+            <p>{{ tempData.maxTemp }}{{ unit }}</p>
+            <p>{{ tempData.minTemp }}{{ unit }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="main-conteiner-more">
+        <h2>Today's Hightlights</h2>
+
+        <div class="main-conteiner-more-about">
+          <div class="main-conteiner-more-about-info" id="wind-status">
+            <p class="desc-name">Wind Status</p>
+            <h2 class="result"><strong>{{ windSpeed }}</strong>mph</h2>
+          </div>
+          <div class="main-conteiner-more-about-info" id="humidity-status">
+            <p class="desc-name">Humidity</p>
+            <h2 class="result"><strong>{{ humidity }}</strong>%</h2>
+
+            <div class="bar-rate-conteiner">
+              <div class="rate-points">
+                <p>0</p>
+                <p>50</p>
+                <p>100</p>
+              </div>
+              <div class="bar-rate-template">
+                <div :style="{width: humidity + '%'}" class="bar-rate">
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="main-conteiner-more-about-info" id="visibility-status">
+            <p class="desc-name">Visibility</p>
+            <h2 class="result"><strong>{{ visibility }}</strong>miles</h2>
+          </div>
+
+          <div class="main-conteiner-more-about-info" id="air-pressure">
+            <p class="desc-name">Air Pressure</p>
+            <h2 class="result"><strong>{{ airPressure }}</strong>mb</h2>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <h3>Eufránio Diogo @ DevChallenges.io</h3>
+      </footer>
+    </main>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>

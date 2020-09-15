@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --black-violet: #100E1D;
+    --gray-violet: #1E213A;
+    --text-standard-color: #E7E7EB;
+}
+
+@font-face{
+    font-family: Ral;
+    src: url('../FONTS/Raleway-VariableFont_wght.ttf');
+}
