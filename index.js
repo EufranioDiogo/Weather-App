@@ -1,7 +1,7 @@
 let woeid = null;
 let tempInformations = null;
 let searchPanel = document.querySelector('.search-menu');
-let btnSearch = document.querySelector('.search-engine-input-field-conteiner button');
+let btnSearch = document.querySelector('#search-btn');
 
 
 let app = new Vue({
@@ -71,6 +71,7 @@ let app = new Vue({
             btnSearch.disabled = true;
             btnSearch.style.backgroundColor = '#868686 !important';
             btnSearch.innerText = 'Searching';
+
             if (this.searchedPlace.trim()) {
                 fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=' + this.searchedPlace).then(function (response) {
                     return response.json();
@@ -81,7 +82,9 @@ let app = new Vue({
                         this.searchResults.push(data[i]);
                     }
                     console.log(this.searchResults);
-                    btnSearch.innerText = 'Search'
+                    btnSearch.innerText = 'Search';
+                    btnSearch.disabled = false;
+                    btnSearch.style.backgroundColor = '#0097f5';
                 })
             } else {
                 alert('Please Insert something at the field!')
