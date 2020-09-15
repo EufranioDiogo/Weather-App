@@ -78,8 +78,8 @@
         margin: 15px 0 0px 0;
         font-family: Ral, sans-serif;
         width: 100%;
-height: auto;
-text-align: center;
+        height: auto;
+        text-align: center;
     }
     .aside-information-bottom {
         display: block;
@@ -109,7 +109,7 @@ text-align: center;
         display: inline-block;
         margin: 0 5px;
     }
-    .search-menu{
+    .search-menu {
         width: 25%;
         height: 100vh;
         position: absolute;
@@ -117,7 +117,7 @@ text-align: center;
         background-color: #f0f0f0;
         display: none;
     }
-    #close-search-painel{
+    #close-search-painel {
         position: absolute;
         right: 5%;
         top: 2%;
@@ -126,31 +126,31 @@ text-align: center;
         cursor: pointer;
         transition: all 0.3s ease;
     }
-    #close-search-painel:hover{
+    #close-search-painel:hover {
         color: #f10020d3;
     }
-    .search-menu-conteiner{
+    .search-menu-conteiner {
         width: 90%;
         position: relative;
         margin: 15px auto;
         margin-top: 50px;
     }
-    .search-engine-conteiner{
+    .search-engine-conteiner {
         position: relative;
         width: 100%;
     }
-    .search-menu-conteiner p{
+    .search-menu-conteiner p {
         font-family: Ral, Arial, Helvetica, sans-serif;
         color: #6E707A;
         margin-top: 25px;
     }
-    .search-engine-input-field-conteiner{
+    .search-engine-input-field-conteiner {
         display: flex;
         position: relative;
         width: auto;
         background-color: transparent !important;
     }
-    .search-engine-input-field-conteiner button{
+    .search-engine-input-field-conteiner button {
         position: absolute;
         height: 100%;
         right: 0;
@@ -163,10 +163,10 @@ text-align: center;
         cursor: pointer;
         font-weight: 800;
     }
-    .search-engine-input-field-conteiner button:hover{
+    .search-engine-input-field-conteiner button:hover {
         background-color: #008ae0;
     }
-    .search-engine-input-field-conteiner input{
+    .search-engine-input-field-conteiner input {
         border: none;
         position: relative;
         padding: 10px 10px 10px 0px;
@@ -177,7 +177,7 @@ text-align: center;
         color: #222222;
         width: 60%;
     }
-    .search-engine-input-field-conteiner i{
+    .search-engine-input-field-conteiner i {
         line-height: 36px;
         border-bottom: 1px solid #585676;
         border-left: 1px solid #585676;
@@ -185,27 +185,30 @@ text-align: center;
         padding: 0 10px;
         color: #6E707A;
     }
-    .result-list{
+    .result-list {
         list-style: none;
         margin: 35px 0;
     }
-    .result-list button{
+    .result-list button {
         text-decoration: none;
         position: relative;
         font-family: Ral, Arial, Helvetica, sans-serif;
         border: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+        border: 1px solid #f0f0f0;
+        transition: 0.5s;
     }
-    .result-list button li{
+    .result-list button li {
         height: 100%;
         display: block;
         position: relative;
         padding: 10px;
         color: #1a1a1a;
         margin: 10px 0;
-        transition: 0.5s;
-        border: 1px solid #f0f0f0;
     }
-    .result-list button li:hover{
+    .result-list button:hover {
         border: 1px solid #ccccce3c;
     }
     .main-conteiner {
@@ -253,7 +256,7 @@ text-align: center;
         border-radius: 5px;
         transition: 0.3s;
     }
-    .weekday-state:hover{
+    .weekday-state:hover {
         background-color: #e6e6e6a0;
     }
     .weekday-desc {
@@ -372,7 +375,7 @@ text-align: center;
         border-radius: 10px;
         background-color: #008ae0;
     }
-    .active{
+    .active {
         background-color: #00c7d1 !important;
     }
     footer {
@@ -389,44 +392,44 @@ text-align: center;
     }
 }
 
-@media only screen and ( max-width: 540px ){
-    #app{
+@media only screen and ( max-width: 540px) {
+    #app {
         flex-wrap: wrap;
         width: 100%;
         flex-shrink: unset;
         height: auto;
     }
-    .search-menu{
+    .search-menu {
         position: absolute;
         width: 100%;
     }
-    .aside-menu{
+    .aside-menu {
         width: 100%;
         height: 100vh;
     }
-    .main-conteiner{
+    .main-conteiner {
         width: 100% !important;
         height: auto !important;
     }
-    .main-conteiner-more{
+    .main-conteiner-more {
         position: relative;
         margin-bottom: 100px;
     }
-    .main-conteiner-weekdays{
+    .main-conteiner-weekdays {
         width: 85%;
         flex-wrap: wrap;
     }
-    .main-conteiner-more-about-info{
+    .main-conteiner-more-about-info {
         position: relative;
     }
-    .main-conteiner-weekdays .weekday-state{
+    .main-conteiner-weekdays .weekday-state {
         margin: 10px 0px;
     }
-    .main-conteiner .main-conteiner-more-about{
+    .main-conteiner .main-conteiner-more-about {
         grid-template-columns: 1fr;
         position: relative;
     }
-    footer{
+    footer {
         transform: translateX(-50%);
     }
 }
